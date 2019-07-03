@@ -19,31 +19,24 @@ const Container = styled.div`
   transition: background-color 0.75s;
 `;
 
-interface ICounter {
-  number: number;
-  color: string;
-  onIncrement: any;
-  onDecrement: any;
-  onSetColor: any;
-}
 
 const Counter = ({
   number,
   color,
+  index,
   onIncrement,
   onDecrement,
   onSetColor
-}: ICounter) => {
+}: any) => {
   return (
     <Container
-      className="Counter"
-      onClick={onIncrement}
+      onClick={() => onIncrement(index)}
       onContextMenu={(e: any) => {
         e.preventDefault();
-        onDecrement();
+        onDecrement(index);
       }}
       style={{ backgroundColor: color }}
-      onDoubleClick={onSetColor}
+      onDoubleClick={() => onSetColor(index)}
     >
       {number}
     </Container>
