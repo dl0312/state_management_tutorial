@@ -8,17 +8,14 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin: 1rem;
-
   color: white;
-
   font-size: 3rem;
-
+  background-color:black;
   border-radius: 100%;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.75s;
 `;
-
 
 const Counter = ({
   number,

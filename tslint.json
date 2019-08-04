@@ -13,8 +13,8 @@
     "member-access": false,
     "one-variable-per-declaration": false,
     "jsx-boolean-value": false,
-    "no-empty-interface": false
-    // "no-unused-expression": false
+    "no-empty-interface": false,
+    "no-unused-expression": false
   },
   "linterOptions": {
     "exclude": [

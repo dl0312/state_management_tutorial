@@ -1,15 +1,12 @@
-import Counter from "../components/Counter";
 import * as actions from "../actions";
 import { connect } from "react-redux";
 import { getRandomColor } from "../utils";
+import CounterList from '../components/CounterList';
 
-interface State {
-  counters: any
-}
 
 // store 안의 state 값을 props로 연결해줍니다.
-const mapStateToProps = (state: State) => ({
-  counters: state.counters
+const mapStateToProps = (state: any) => ({
+  counters: state.get('counters')
 });
 
 /*
@@ -22,7 +19,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   onDecrement: (index: number) => dispatch(actions.decrement(index)),
   onSetColor: (index: number) => {
     const color = getRandomColor();
-    dispatch(actions.setColor({ index, color}));
+    dispatch(actions.setColor({ index, color }));
   }
 });
 
@@ -32,6 +29,6 @@ const mapDispatchToProps = (dispatch: any) => ({
 const CounterListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter);
+)(CounterList);
 
 export default CounterListContainer;

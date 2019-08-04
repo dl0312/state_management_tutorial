@@ -17,16 +17,18 @@ class App extends Component<Props, {}> {
     const { onCreate, onRemove } = this.props;
     return (
       <div>
-        <Buttons onCreate={onCreate} onRemove={onRemove}/>
+        <Buttons onCreate={onCreate} onRemove={onRemove} />
         <CounterListContainer />
       </div>
     );
   }
 }
 
+// action 함수를 준비합니다.
 const mapToDispatch = (dispatch: any) => ({
   onCreate: () => dispatch(actions.create(getRandomColor())),
-  onRemove: (index:number) => dispatch(actions.remove(index))
+  onRemove: (index: number) => dispatch(actions.remove(index))
 })
 
+// redux에 연결시키고 내보냅니다.
 export default connect(null, mapToDispatch)(App);
