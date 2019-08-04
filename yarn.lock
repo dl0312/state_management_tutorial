@@ -1225,6 +1225,7 @@
 "@types/redux-actions@^2.6.1":
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-2.6.1.tgz#0940e97fa35ad3004316bddb391d8e01d2efa605"
+  integrity sha512-zKgK+ATp3sswXs6sOYo1tk8xdXTy4CTaeeYrVQlClCjeOpag5vzPo0ASWiiBJ7vsiQRAdb3VkuFLnDoBimF67g==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -7232,6 +7233,7 @@ reduce-reducers@^0.4.3:
 redux-actions@^2.6.5:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-2.6.5.tgz#bdca548768ee99832a63910c276def85e821a27e"
+  integrity sha512-pFhEcWFTYNk7DhQgxMGnbsB1H2glqhQJRQrtPb96kD3hWiZRzXHwwmFPswg6V2MjraXRXWNmuP9P84tvdLAJmw==
   dependencies:
     invariant "^2.2.4"
     just-curry-it "^3.1.0"
