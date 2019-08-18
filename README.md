@@ -1,38 +1,13 @@
-# 🌌 Frontend Boilerplate with React, Redux, TypeScript
+# 👩‍💻 State Management Tutorial
+상태 관리의 기초를 공부합니다.
 
-Ideal method for creating React apps from beginning
+## 상태관리 라이브러리
+* [Redux](https://redux.js.org/)
+* [MobX](https://github.com/mobxjs/mobx)  
 
-## 👀 Contains
-| Library                | Version    |
-| ---------------------- | ---------- |
-| react (with **Hooks**) | **^16.8**  |
-| react-dom              | **^16.8**  |
-| react-redux            | **^7.1**   |
-| react-router           | **^5.0**   |
-| react-scripts          | **^3.0**   |
-| redux                  | **^4.0**   |
-| redux-actions          | **^2.6.5** |
-| styled-components      | **^4.3**   |
-| typescript             | **^3.5**   |
 
-## Installation
+## 📚 참고자료
+* [Redux 를 통한 React 어플리케이션 상태 관리](https://velopert.com/3365)
+* [Redux 또는 MobX 를 통한 상태 관리](https://velog.io/@velopert/redux-or-mobx)
 
-```
-$ yarn
-```
-
-## Running
-
-```
-$ yarn start
-```
-
-## Build
-
-```
-$ yarn build
-```
-
-# License
-
-MIT
+좋은 글을 써주신 Veloport님께 감사드립니다.
