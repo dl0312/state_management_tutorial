@@ -1,13 +1,32 @@
 # 👩‍💻 State Management Tutorial
+
 상태 관리의 기초를 공부합니다.
 
-## 상태관리 라이브러리
-* [Redux](https://redux.js.org/)
-* [MobX](https://github.com/mobxjs/mobx)  
+## Redux 또는 MobX를 통한 상태 관리
 
+### 1. 상태 관리 라이브러리의 미학
+
+상태 관리 라이브러리는 무조건 필요한 것은 아니다. 하지만 규모가 큰 앱에서는 있는 것이 편합니다.
+
+> 글로벌 상태 관리란, 컴포넌트 간의 데이터 교류 특히 부모 자식 관계가 아닌 컴포넌트끼리의 데이터 교류를 하는 것을 의미합니다.
+
+상태 관리 라이브러리를 모르고 안ㅅ 쓰는 것과 알고 안쓰는 것은 매우 다릅니다.
+상태 관리 라이브러리를 사용해야하는 이유
+
+1. 상태 업데이트 로직의 분리
+   복잡한 상태 업데이트 로직들을 컴포넌트에서 분리하여 이를 모듈화해서 유지보수성을 높일 수 있습니다.
+2. 더 쉬운 상태 관리
+   여러 컴포넌트를 거쳐 props을 건내주는 것보다 더 쉽게 props을 전달할 수 있습니다.
+   Redux, MobX 둘 다 좋은 라이브러리이고 나름의 장점과 단점이 있습니다. 둘 다 배우면서 익혀봅니다.
+
+## 상태관리 라이브러리
+
+- [Redux](https://redux.js.org/)
+- [MobX](https://github.com/mobxjs/mobx)
 
 ## 📚 참고자료
-* [Redux 를 통한 React 어플리케이션 상태 관리](https://velopert.com/3365)
-* [Redux 또는 MobX 를 통한 상태 관리](https://velog.io/@velopert/redux-or-mobx)
+
+- [Redux 를 통한 React 어플리케이션 상태 관리](https://velopert.com/3365)
+- [Redux 또는 MobX 를 통한 상태 관리](https://velog.io/@velopert/redux-or-mobx)
 
 좋은 글을 써주신 Veloport님께 감사드립니다.
