@@ -26,13 +26,17 @@
 리덕스를 이요하여 쉬운 글로벌 상태 관리를 할 수 있고, 체계적이고 편리한 상태 관리를 할 수 있다.
 
 #### 액션(Action)
+
 상태에 어떤 변화가 필요하게 될때, 액션을 발생시킨다. 하나의 객체로 표현되며 다음과 같은 형식으로 이루어져있다.
+
 ```js
 {
-    type: "TOGGLE_VALUE"
+  type: "TOGGLE_VALUE";
 }
 ```
+
 `type`필드를 필수적으로 가지고 있어야하고, 그 외의 값들은 개발자 마음대로 넣어줄 수 있다.
+
 ```js
 {
   type: "ADD_TODO",
@@ -42,14 +46,18 @@
   }
 }
 ```
+
 ```js
 {
   type: "CHANGE_INPUT",
   text: "안ㄴ"
 }
 ```
+
 #### 액션 생성함수(Action Creator)
+
 액션 생성함수는 액션을 만드는 함수, 파라미터를 받아와서 액션 객체 형태로 만들어준다.
+
 ```
 function addTodo(data){
     return{
@@ -66,27 +74,31 @@ const changeInput = text => ({
 ```
 
 #### 리듀서(Reducer)
+
 리듀서는 변화를 일으키는 함수로 두가지의 파라미터를 받아온다.
 
 ```js
-function reducer(state, action){
-    // 상태 업데이트 로직
-    return alteredState;
+function reducer(state, action) {
+  // 상태 업데이트 로직
+  return alteredState;
 }
 ```
+
 리듀서는 현재의 상태와 전달받은 액션을 참고하여 새로운 상태를 만들어서 반환한다.
 
 #### 스토어(Store)
+
 리덕스에서는 한 애플리케이션 당 하나의 스토어를 만들게 됩니다. 스토어 안에는 현재 앱 상태와 리듀서가 들어가있고 추가적으로 몇 가지 내장함수들이 있다.
 
 #### 디스패치(Dispatch)
+
 디스패치는 스토어의 내장함수 중 하나로 액션을 발생시키는 것이라고 이해하면 된다. `dispatch`라는 함수에 `dispatch(action)`이런 식으로, 액션을 파라미터로 전달한다.
 
 호출을 하면 스토어는 리듀서 함수를 실행시켜서 해당 액션을 처리하는 로직이 있다면 액션을 참고하여 새로운 상태를 만들어준다.
 
 #### 구독(Subscribe)
-스토어의 내장함수 중 하나로 `subscribe`함수는 함수형태의 값을 파라미터로 받아온다. `subscribe` 함수에 특정 함수를 전달해주면 액션이 디스패치 되었을 때마다 전달해준 함수가 호출된다.
 
+스토어의 내장함수 중 하나로 `subscribe`함수는 함수형태의 값을 파라미터로 받아온다. `subscribe` 함수에 특정 함수를 전달해주면 액션이 디스패치 되었을 때마다 전달해준 함수가 호출된다.
 
 - [Redux](https://redux.js.org/)
 - [MobX](https://github.com/mobxjs/mobx)
@@ -95,5 +107,12 @@ function reducer(state, action){
 
 - [Redux 를 통한 React 어플리케이션 상태 관리](https://velopert.com/3365)
 - [Redux 또는 MobX 를 통한 상태 관리](https://velog.io/@velopert/redux-or-mobx)
+  1. [x] Redux (1) 소개 및 개념정리
+  2. [x] Redux (2) 리액트 없이 쓰는 리덕스
+  3. [x] Redux (3) 리덕스를 리액트와 함께 사용하기
+  4. [x] Redux (4) Immutable.js 혹은 Immer.js 를 사용한 더 쉬운 불변성 관리
+  5. [ ] MobX (1) 시작하기
+  6. [ ] MobX (2) 리액트 프로젝트에서 MobX 사용하기
+  7. [ ] MobX (3) 심화적인 사용 및 최적화 방법
 
 좋은 글을 써주신 Veloport님께 감사드립니다.
