@@ -16,14 +16,17 @@ class PaletteContainer extends Component {
   }
 }
 
+// props 로 넣어줄 스토어 상태값
 const mapStateToProps = state => ({
-  color: state.counter.get('color'),
+  color: state.counter.color,
 });
 
+// props 로 넣어줄 액션 생성함수
 const mapDispatchToProps = dispatch => ({
   changeColor: color => dispatch(changeColor(color)),
 });
 
+// 컴포넌트에 리덕스 스토어를 연동해줄 때에는 connect 함수 사용
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -1,47 +1,58 @@
-import React from 'react';
-import './WaitingList.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as waitingActions from '../store/modules/waiting';
+import WaitingList from '../components/WaitingList';
 
-const WaitingItem = ({ text, entered, onEnter, onLeave }) => {
-  return (
-    <li>
-      <div className={`text ${entered ? 'entered' : ''}`}>{text}</div>
-      <div className="buttons">
-        <button onClick={onEnter}>입장</button>
-        <button onClick={onLeave}>나감</button>
-      </div>
-    </li>
-  );
-};
+class WaitingListContainer extends Component {
+  // 인풋 변경 이벤트
+  handleChange = e => {
+    const { WaitingActions } = this.props;
+    WaitingActions.changeInput(e.target.value);
+  };
+  // 등록 이벤트
+  handleSubmit = e => {
+    e.preventDefault();
+    const { WaitingActions, input } = this.props;
+    WaitingActions.create(input); // 등록
+    WaitingActions.changeInput(''); // 인풋 값 초기화
+  };
+  // 입장
+  handleEnter = id => {
+    const { WaitingActions } = this.props;
+    WaitingActions.enter(id);
+  };
+  // 나가기
+  handleLeave = id => {
+    const { WaitingActions } = this.props;
+    WaitingActions.leave(id);
+  };
+  render() {
+    const { input, list } = this.props;
+    return (
+      <WaitingList
+        input={input}
+        waitingList={list}
+        onChange={this.handleChange}
+        onSubmit={this.handleSubmit}
+        onEnter={this.handleEnter}
+        onLeave={this.handleLeave}
+      />
+    );
+  }
+}
 
-const WaitingList = ({
-  input,
-  waitingList,
-  onChange,
-  onSubmit,
-  onEnter,
-  onLeave,
-}) => {
-  const waitingItems = waitingList.map(w => (
-    <WaitingItem
-      key={w.get('id')}
-      text={w.get('name')}
-      entered={w.get('entered')}
-      id={w.get('id')}
-      onEnter={() => onEnter(w.get('id'))}
-      onLeave={() => onLeave(w.get('id'))}
-    />
-  ));
-  return (
-    <div className="WaitingList">
-      <h2>대기자 명단</h2>
-      {/* form 과 input 에 이벤트 및 값 설정 */}
-      <form onSubmit={onSubmit}>
-        <input value={input} onChange={onChange} />
-        <button>등록</button>
-      </form>
-      <ul>{waitingItems}</ul> {/* 하드코딩된것을 컴포넌트 배열로 교체 */}
-    </div>
-  );
-};
+const mapStateToProps = ({ waiting }) => ({
+  input: waiting.input,
+  list: waiting.list,
+});
 
-export default WaitingList;
+// 이런 구조로 하면 나중에 다양한 리덕스 모듈을 적용해야 하는 상황에서 유용합니다.
+const mapDispatchToProps = dispatch => ({
+  WaitingActions: bindActionCreators(waitingActions, dispatch),
+  // AnotherActions: bindActionCreators(anotherActions, dispatch)
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WaitingListContainer);
