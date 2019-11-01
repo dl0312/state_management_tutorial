@@ -1,3 +1,5 @@
+import { Map } from 'immutable';
+
 // define action type
 const CHANGE_COLOR = 'counter/CHANGE_COLOR';
 const INCREMENT = 'counter/INCREMENT';
@@ -9,29 +11,20 @@ export const increment = () => ({ type: INCREMENT });
 export const decrement = () => ({ type: DECREMENT });
 
 // define initial state
-const initialState = {
+const initialState = Map({
   color: 'red',
   number: 0,
-};
+});
 
 // define reducer
 export default function counter(state = initialState, action) {
   switch (action.type) {
     case CHANGE_COLOR:
-      return {
-        ...state,
-        color: action.color,
-      };
+      return state.set('color', action.color);
     case INCREMENT:
-      return {
-        ...state,
-        number: state.number + 1,
-      };
+      return state.update('number', number => number + 1);
     case DECREMENT:
-      return {
-        ...state,
-        number: state.number - 1,
-      };
+      return state.update('number', number => number - 1);
     default:
       return state;
   }
